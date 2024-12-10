@@ -1,0 +1,6 @@
+target
+/.sccache/
+.DS_Store
+.soroban
+.idea
+test_snapshots

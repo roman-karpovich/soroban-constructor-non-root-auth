@@ -1,0 +1,30 @@
+[workspace]
+resolver = "2"
+
+members = [
+    "contracts/smart_contract",
+    "contracts/smart_contract_wrapper",
+]
+
+[workspace.package]
+version = "1.0.0"
+rust-version = "1.82"
+
+[workspace.dependencies]
+soroban-sdk = { version = "22.0.1" }
+smart-contract = { path = "contracts/smart_contract" }
+smart-contract-wrapper = { path = "contracts/smart_contract_wrapper" }
+
+[profile.release]
+opt-level = "z"
+overflow-checks = true
+debug = 0
+strip = "symbols"
+debug-assertions = false
+panic = "abort"
+codegen-units = 1
+lto = true
+
+[profile.release-with-logs]
+inherits = "release"
+debug-assertions = true
